@@ -31,5 +31,19 @@ bindkey '^[[B' history-search-forward
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+alias reload='source ~/.zshrc'
+
 # git bare repo alias
  alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+ # list directory files 
+ alias lla='ls -la'
+ alias ll="ls -l"
+ alias la="ls -a"
+
+ # ip info
+ alias ipi="curl ipinfo/ip"
+
+ # directory and file commands
+ alias rmf="rm -rf"
+
