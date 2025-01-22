@@ -27,7 +27,9 @@
       "space v": "pane::SplitRight",
       "space w": "pane::CloseActiveItem",
       "space h": "workspace::ActivateNextPane",
-      "space l": "workspace::ActivatePreviousPane"
+      "space l": "workspace::ActivatePreviousPane",
+      "space i": "workspace::ToggleRightDock",
+      "space r": "projects::OpenRecent"
     }
   },
   {
@@ -86,6 +88,13 @@
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
       "j k": ["vim::SwitchMode", "Normal"]
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space t": "workspace::NewCenterTerminal",
+      "space o": "tab_switcher::Toggle"
     }
   }
 ]
