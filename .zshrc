@@ -1,17 +1,16 @@
- source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-
+# Initialize Nix-managed tools
 eval "$(starship init zsh)"
-
 eval "$(direnv hook zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 source <(fzf --zsh)
 
-# history setup
+# Zsh enhancements (from Nix)
+source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Path additions
+export PATH="$HOME/.bun/bin:$PATH"
+
+# History setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
@@ -20,30 +19,31 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
-# Clean Brew
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "Brewski Complete" | terminal-notifier -sound default -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew"'
-
-# completion using arrow keys (based on history)
+# Key bindings - completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+# Aliases
 alias reload='source ~/.zshrc'
 
-# git bare repo alias
- alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+# Git bare repo alias
+alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
- # list directory files 
- alias lla='ls -la'
- alias ll="ls -l"
- alias la="ls -a"
+# Directory listing aliases
+alias lla='ls -la'
+alias ll='ls -l'
+alias la='ls -a'
 
- # ip info
- alias ipi="curl ipinfo/ip"
+# Utility aliases
+alias ipi='curl ipinfo/ip'
+alias rmf='rm -rf'
+alias python='python3'
 
- # directory and file commands
- alias rmf="rm -rf"
+# Nix/Home Manager alias
+alias hm='home-manager --flake ~/.config/nix'
 
+# Homebrew management (keeping for now during transition)
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "Brewskis finished" | terminal-notifier -sound default -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew"'
+
+# Load local environment if it exists
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
