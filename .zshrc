@@ -1,12 +1,12 @@
-# Initialize Nix-managed tools
+# Initialize starship and direnv
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 source <(fzf --zsh)
 
-# Zsh enhancements (from Nix)
-source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+#
 # Path additions
 export PATH="$HOME/.bun/bin:$PATH"
 
@@ -39,11 +39,13 @@ alias ipi='curl ipinfo/ip'
 alias rmf='rm -rf'
 alias python='python3'
 
-# Nix/Home Manager alias
-alias hm='home-manager --flake ~/.config/nix'
-
-# Homebrew management (keeping for now during transition)
+# Homebrew management
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "Brewskis finished" | terminal-notifier -sound default -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew"'
 
 # Load local environment if it exists
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+
+# bun completions
+[ -s "/Users/hijoe/.bun/_bun" ] && source "/Users/hijoe/.bun/_bun"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

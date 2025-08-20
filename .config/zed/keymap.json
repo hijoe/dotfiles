@@ -9,10 +9,10 @@
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
   {
@@ -23,7 +23,7 @@
       "space p": "editor::Format",
       "space space": "file_finder::Toggle",
       "shift-l": "pane::ActivateNextItem",
-      "shift-h": "pane::ActivatePrevItem",
+      "shift-h": "pane::ActivatePreviousItem",
       "space v": "pane::SplitRight",
       "space w": "pane::CloseActiveItem",
       "space h": "workspace::ActivateNextPane",
@@ -64,10 +64,10 @@
     "context": "Dock",
 
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
       // ... or other keybindings
     }
   },
@@ -87,7 +87,7 @@
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j k": ["vim::SwitchMode", "Normal"]
+      "j k": "vim::SwitchToNormalMode"
     }
   },
   {
