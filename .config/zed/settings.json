@@ -30,7 +30,7 @@
   "relative_line_numbers": true,
   "theme": {
     "mode": "system",
-    "light": "Everforest Dark Soft",
+    "light": "Gruvbox Light Soft",
     "dark": "dev mode"
   },
   "soft_wrap": "editor_width",

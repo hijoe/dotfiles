@@ -1,9 +1,13 @@
--- In your plugins configuration
 return {
-  "neanias/everforest-nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd([[colorscheme everforest]])
-  end,
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        contrast = "soft",
+      })
+      vim.o.background = "light"
+      vim.cmd([[colorscheme gruvbox]])
+    end,
+  },
 }

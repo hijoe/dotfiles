@@ -35,7 +35,7 @@ alias ll='ls -l'
 alias la='ls -a'
 
 # Utility aliases
-alias ipi='curl ipinfo/ip'
+alias ipi='curl ipinfo.io/ip'
 alias rmf='rm -rf'
 alias python='python3'
 
