@@ -11,12 +11,57 @@ local projects = require("projects")
 config.font = wezterm.font("MesloLGS Nerd Font Mono", { weight = "Regular" })
 config.font_size = 12
 
-config.use_fancy_tab_bar = false
+config.window_decorations = "RESIZE"
+config.window_padding = {
+	left = 5,
+	right = 5,
+	top = 10,
+	bottom = 10,
+}
+
+config.inactive_pane_hsb = {
+	brightness = 0.9,
+	saturation = 1.0,
+	hue = 1.0,
+}
+
 config.hide_tab_bar_if_only_one_tab = true
 
-config.window_decorations = "RESIZE"
--- config.window_background_opacity = .85
--- config.macos_window_background_blur = 10
+-- Tab bar styling to match Gruvbox light theme
+config.window_frame = {
+	font = wezterm.font({ family = "Roboto", weight = "Bold" }),
+	font_size = 12.0,
+	active_titlebar_bg = "#fbf1c7",
+	inactive_titlebar_bg = "#fbf1c7",
+}
+
+config.colors = {
+	tab_bar = {
+		background = "#fbf1c7",
+		active_tab = {
+			bg_color = "#ebdbb2",
+			fg_color = "#282828",
+		},
+		inactive_tab = {
+			bg_color = "#f2e5bc",
+			fg_color = "#665c54",
+		},
+		inactive_tab_hover = {
+			bg_color = "#ebdbb2",
+			fg_color = "#3c3836",
+		},
+		inactive_tab_edge = "#d5c4a1",
+		inactive_tab_edge_hover = "#d5c4a1",
+		new_tab = {
+			bg_color = "#f2e5bc",
+			fg_color = "#665c54",
+		},
+		new_tab_hover = {
+			bg_color = "#ebdbb2",
+			fg_color = "#282828",
+		},
+	},
+}
 
 config.leader = {
 	key = "a",
@@ -89,7 +134,21 @@ config.keys = {
 		-- Present a list of existing workspaces
 		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
 	},
+	{
+		-- Rotate panes clockwise to rearrange layout
+		key = "r",
+		mods = "LEADER",
+		action = wezterm.action.RotatePanes("Clockwise"),
+	},
+	{
+		-- Rotate panes counter-clockwise to rearrange layout
+		key = "R",
+		mods = "LEADER",
+		action = wezterm.action.RotatePanes("CounterClockwise"),
+	},
 }
+
 config.color_scheme = "Gruvbox light, soft (base16)"
+
 -- and finally, return the configuration to wezterm
 return config
