@@ -12,8 +12,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "Editor && vim_mode == normal",
@@ -29,8 +29,8 @@
       "space h": "workspace::ActivateNextPane",
       "space l": "workspace::ActivatePreviousPane",
       "space i": "workspace::ToggleRightDock",
-      "space r": "projects::OpenRecent"
-    }
+      "space r": "projects::OpenRecent",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
@@ -38,27 +38,27 @@
       "alt-h": "vim::Left",
       "alt-l": "vim::Right",
       "alt-j": "vim::Down",
-      "alt-k": "vim::Up"
-    }
+      "alt-k": "vim::Up",
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
-    }
+      "shift-k": "editor::MoveLineUp",
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
-      "space e": "workspace::ToggleLeftDock"
-    }
+      "space e": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-/": "workspace::ToggleBottomDock"
-    }
+      "ctrl-/": "workspace::ToggleBottomDock",
+    },
   },
   {
     "context": "Dock",
@@ -67,9 +67,9 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-j": "workspace::ActivatePaneDown",
       // ... or other keybindings
-    }
+    },
   },
   // File panel (netrw)
   {
@@ -81,20 +81,24 @@
       "d": "project_panel::Delete",
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
-    }
+      "p": "project_panel::Paste",
+    },
   },
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j k": "vim::SwitchToNormalMode"
-    }
+      "j k": "vim::SwitchToNormalMode",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space t": "workspace::NewCenterTerminal",
-      "space o": "tab_switcher::Toggle"
-    }
-  }
+      "space o": "tab_switcher::Toggle",
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit enter",
+      ],
+    },
+  },
 ]
